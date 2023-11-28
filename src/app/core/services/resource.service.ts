@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, map, catchError } from 'rxjs';
 import { SettingsService } from './settings.service';
 import { Response } from './../models/response';
+import { User } from 'src/app/domain/login/models/user';
 
 @Injectable({
   providedIn: 'root'

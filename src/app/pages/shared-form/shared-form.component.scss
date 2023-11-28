@@ -1,6 +1,8 @@
-.input{
+input{
   background-color: transparent;
-}
-.input:hover{
-  border: 1px solid black;
-}
+  padding: 10px;
+  }
+  mat-form-field{
+    padding-top: 20px;
+  }
+

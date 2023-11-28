@@ -16,6 +16,7 @@ import { SharedFormComponent } from './pages/shared-form/shared-form.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoginFormComponent } from './pages/login-form/login-form.component';
 export function configServiceFactory(
   config: ConfigService
 ): () => Promise<boolean> {
@@ -29,6 +30,7 @@ export function configServiceFactory(
     FooterComponent,
     RegisterFormComponent,
     SharedFormComponent,
+    LoginFormComponent,
   ],
   imports: [
     BrowserModule,

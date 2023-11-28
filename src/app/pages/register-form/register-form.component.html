@@ -1,6 +1,7 @@
 <div class="register-form d-flex justify-content-center align-content-center ">
 <mat-card>
-  <h3 class="text-center">Registration</h3>
+  <h2 class="text-center">Registration</h2>
+  <img class="log" src="assets/images/login logo.png">
 <form class="form" [formGroup]="registerForm">
   <fieldset class="row justify-content-center align-content-center text-center">
     <app-shared-form
@@ -23,10 +24,10 @@
         *ngIf="registerForm.controls['email'].invalid &&
         (registerForm.controls['email'].touched || registerForm.controls['email'].dirty)"
       >
-        <mat-error *ngIf="registerForm.controls['email'].hasError('required')" class="text-danger w-50">Email is
+        <mat-error *ngIf="registerForm.controls['email'].hasError('required')" class="text-danger">Email is
           <strong>required</strong>
         </mat-error>
-        <mat-error *ngIf="registerForm.controls['email'].hasError('email')" class="text-danger w-50">Email must
+        <mat-error *ngIf="registerForm.controls['email'].hasError('email')" class="text-danger">Email must
           <strong>contain @ </strong>
         </mat-error>
       </mat-error>
@@ -41,7 +42,7 @@
     <mat-error
     *ngIf="registerForm.controls['password'].invalid &&
     (registerForm.controls['password'].touched)">
-    <mat-error *ngIf="registerForm.controls['password'].hasError('required')" class="text-danger w-50">Password is
+    <mat-error *ngIf="registerForm.controls['password'].hasError('required')" class="text-danger">Password is
       <strong>required</strong>
     </mat-error>
   </mat-error>
@@ -56,13 +57,13 @@
     <mat-error
     *ngIf="registerForm.controls['confirmPassword'].invalid &&
     (registerForm.controls['confirmPassword'].touched)">
-    <mat-error *ngIf="registerForm.controls['confirmPassword'].hasError('required')" class="text-danger w-50">Confirm Password is
-      <strong>required</strong>
+    <mat-error *ngIf="registerForm.controls['confirmPassword'].hasError('required')" class="text-danger">
+      Confirm Password is<strong> required</strong>
     </mat-error>
   </mat-error>
 
-
-  <button class="register-button w-50 fs-5 rounded" type="submit" (click)="addUser()">Register</button>
+  <div class="text-danger pass-message" *ngIf="registerForm?.errors?.['mismatch'] && registerForm?.touched">Password must <strong>match</strong> </div>
+  <button class="register-button rounded" type="submit" (click)="addUser()">Register</button>
 </fieldset>
 </form>
 </mat-card>

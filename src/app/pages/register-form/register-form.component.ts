@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
+import { Router } from '@angular/router';
 import { RegisterRepository } from 'src/app/domain/register/register.repository';
 
 @Component({
@@ -9,9 +10,10 @@ import { RegisterRepository } from 'src/app/domain/register/register.repository'
 })
 export class RegisterFormComponent {
   registerForm!: FormGroup;
-  confirmPass:boolean=false;
 
-  constructor(private formBuilder : FormBuilder,private registerRepository:RegisterRepository) {
+  constructor(private formBuilder : FormBuilder,
+    private registerRepository:RegisterRepository,
+    private router:Router) {
 
   }
   ngOnInit(): void {
@@ -23,29 +25,25 @@ export class RegisterFormComponent {
       email: ['' , [Validators.required,Validators.email]],
       password: ['' , [Validators.required]],
       confirmPassword: ['' , [Validators.required]],
+    },
+    {
+      validators:this.passwordMatchValidator
     });
+  }
+  passwordMatchValidator(control:AbstractControl){
+    return control.get('password')?.value === control.get('confirmPassword')?.value
+    ?null:{mismatch:true};
   }
   addUser(){
     if(this.registerForm.invalid){
       this.registerForm.markAllAsTouched();
     }
     else{
-    this.confirmPassword();
-    if(this.confirmPass==true){
-    this.registerRepository.add(this.registerForm.value).subscribe();
-    }
-    else if(this.confirmPass==false){
-      alert("please enter correct passwords");
-    }
+      const registerDate={...this.registerForm.value};
+      delete registerDate.confirmPassword;
+      this.registerRepository.add(registerDate).subscribe();
+      this.router.navigate(['/login']);
   }
-  }
-  confirmPassword(){
-    if (this.registerForm.controls['password'].value==this.registerForm.controls['confirmPassword'].value) {
-      this.confirmPass=true;
-    }
-    else{
-      this.confirmPass=false;
-    }
   }
 
 }

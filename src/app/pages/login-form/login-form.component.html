@@ -1,0 +1,52 @@
+<div class="register-form d-flex justify-content-center align-content-center ">
+  <mat-card>
+    <h2 class="text-center">Login</h2>
+    <img class="log" src="assets/images/login logo.png">
+
+  <form class="form" [formGroup]="loginForm">
+    <fieldset class="row justify-content-center align-content-center text-center">
+      <app-shared-form
+      [control]="$any(loginForm.controls['email'])"
+      type="email"
+      inputId="email"
+      label="Email"
+      [required] = "true">
+      </app-shared-form>
+
+          <mat-error
+          *ngIf="loginForm.controls['email'].invalid &&
+          (loginForm.controls['email'].touched || loginForm.controls['email'].dirty)"
+        >
+          <mat-error *ngIf="loginForm.controls['email'].hasError('required')" class="text-danger">Email is
+            <strong>required</strong>
+          </mat-error>
+          <mat-error *ngIf="loginForm.controls['email'].hasError('email')" class="text-danger">Email must
+            <strong>contain @ </strong>
+          </mat-error>
+        </mat-error>
+
+        <app-shared-form
+        [control]="$any(loginForm.controls['password'])"
+        type="text"
+        inputId="password"
+        label="Password"
+        [required] = "true">
+        </app-shared-form>
+
+            <mat-error
+            *ngIf="loginForm.controls['password'].invalid &&
+            (loginForm.controls['password'].touched || loginForm.controls['password'].dirty)"
+          >
+            <mat-error *ngIf="loginForm.controls['password'].hasError('required')" class="text-danger">Password is
+              <strong>required</strong>
+            </mat-error>
+            </mat-error>
+    <a [routerLink]="['/register']">Create new account!</a>
+
+    <button class="register-button rounded" type="submit" (click)="  login()">Login</button>
+  </fieldset>
+  </form>
+  </mat-card>
+  </div>
+
+
