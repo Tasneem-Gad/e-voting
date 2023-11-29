@@ -20,6 +20,8 @@ import { LoginFormComponent } from './pages/login-form/login-form.component';
 import { LoginInterceptorService } from './core/services/login-interceptor.service';
 import { CookieService } from 'ngx-cookie-service';
 import { HomeComponent } from './pages/home/home.component';
+import { SharedModule } from './pages/shared.module';
+import { RouterModule } from '@angular/router';
 
 export function configServiceFactory(
   config: ConfigService
@@ -31,25 +33,16 @@ export function configServiceFactory(
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent,
-    RegisterFormComponent,
-    SharedFormComponent,
-    LoginFormComponent,
-    HomeComponent,
+    FooterComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
-    MatIconModule,
+    BrowserAnimationsModule,
+    SharedModule,
     MatToolbarModule,
-    MatFormFieldModule,
-    MatSelectModule,
-    MatCardModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatInputModule,
-    BrowserAnimationsModule
+    RouterModule
     ],
   providers: [
     ConfigService,
