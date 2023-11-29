@@ -1,6 +1,6 @@
 import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ConfigService } from './core/services/config.service';
@@ -17,6 +17,10 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginFormComponent } from './pages/login-form/login-form.component';
+import { LoginInterceptorService } from './core/services/login-interceptor.service';
+import { CookieService } from 'ngx-cookie-service';
+import { HomeComponent } from './pages/home/home.component';
+
 export function configServiceFactory(
   config: ConfigService
 ): () => Promise<boolean> {
@@ -31,6 +35,7 @@ export function configServiceFactory(
     RegisterFormComponent,
     SharedFormComponent,
     LoginFormComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,15 +50,21 @@ export function configServiceFactory(
     ReactiveFormsModule,
     MatInputModule,
     BrowserAnimationsModule
-  ],
+    ],
   providers: [
     ConfigService,
+    CookieService,
     {
       provide: APP_INITIALIZER,
       useFactory: configServiceFactory,
       deps: [ConfigService],
       multi: true,
     },
+    {
+      provide:HTTP_INTERCEPTORS,
+      useClass:LoginInterceptorService,
+      multi:true,
+    }
   ],
   bootstrap: [AppComponent]
 })

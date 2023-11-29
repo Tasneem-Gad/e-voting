@@ -37,7 +37,7 @@ mat-error{
 .register-button{
   background-color:rgba(4, 42, 88, 0.933);
   color: white;
-  margin-top: 30px;
+  margin-top: 60px;
   width: 130px;
   font-size: 20px;
   border: none;
@@ -50,8 +50,12 @@ mat-error{
 
 }
 a{
-  margin-top: 40px;
-  margin-left: 90px;
+  margin-top: 10px;
   font-size: 10px;
-  text-align: left;
+  color: black;
+  font-weight: bold;
+  text-align: center;
+}
+a:hover{
+  color: blue;
 }

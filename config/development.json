@@ -1,6 +1,7 @@
+
 {
   "api": {
-    "baseUrl": "http://41.65.11.55:8023/"
+    "baseUrl": "/api/"
   },
   "idle": {
     "timeout": 10

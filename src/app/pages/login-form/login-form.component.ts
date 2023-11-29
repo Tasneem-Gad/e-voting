@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/core/services/auth.service';
 import { LoginRepository } from 'src/app/domain/login/login.repository';
 import { User } from 'src/app/domain/login/models/user';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 @Component({
   selector: 'app-login-form',
@@ -14,8 +14,8 @@ export class LoginFormComponent {
   loginForm!:FormGroup;
   constructor(private formBuilder:FormBuilder,
     private loginRepository:LoginRepository,
-    private authService:AuthService,
-    private router:Router){}
+    private router:Router,
+    private http:HttpClient){}
 
     ngOnInit(){
       this.initializedLoginForm();
@@ -34,9 +34,12 @@ export class LoginFormComponent {
       this.loginForm.markAllAsTouched();
     }
     else{
-    this.loginRepository.add(this.loginForm.value).subscribe((response)=>{
-      this.authService.setToken(response.accessToken);
-  })
+    this.loginRepository.add(this.loginForm.value).subscribe(ـ=>{
+      this.router.navigate(['/home']);
+    });
+
+
   }
 }
+
 }
