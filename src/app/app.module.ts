@@ -17,7 +17,6 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginFormComponent } from './pages/login-form/login-form.component';
-import { LoginInterceptorService } from './core/services/login-interceptor.service';
 import { CookieService } from 'ngx-cookie-service';
 import { HomeComponent } from './pages/home/home.component';
 import { SharedModule } from './pages/shared.module';
@@ -52,11 +51,6 @@ export function configServiceFactory(
       useFactory: configServiceFactory,
       deps: [ConfigService],
       multi: true,
-    },
-    {
-      provide:HTTP_INTERCEPTORS,
-      useClass:LoginInterceptorService,
-      multi:true,
     }
   ],
   bootstrap: [AppComponent]
