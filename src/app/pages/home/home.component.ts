@@ -1,6 +1,4 @@
-import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { RegisterRepository } from 'src/app/domain/register/register.repository';
 
 @Component({
   selector: 'app-home',
@@ -8,14 +6,6 @@ import { RegisterRepository } from 'src/app/domain/register/register.repository'
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
-  constructor(private registerRepository:RegisterRepository,private http:HttpClient){}
+  constructor(){}
 
-  getAllUsers() {
-    this.registerRepository.getList().subscribe((result) => {
-    console.log(result);
-    });
-  }
-  ngOnInit(){
-    this.getAllUsers();
-  }
 }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, AbstractControl, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RegisterRepository } from 'src/app/domain/register/register.repository';
 
@@ -10,6 +10,10 @@ import { RegisterRepository } from 'src/app/domain/register/register.repository'
 })
 export class RegisterFormComponent {
   registerForm!: FormGroup;
+  username!:FormControl;
+  email!:FormControl;
+  password!:FormControl;
+  confirmPassword!:FormControl;
 
   constructor(private formBuilder : FormBuilder,
     private registerRepository:RegisterRepository,
@@ -29,6 +33,9 @@ export class RegisterFormComponent {
     {
       validators:this.passwordMatchValidator
     });
+    this.email=this.registerForm.controls['email'] as FormControl;
+    this.password= this.registerForm.controls['password'] as FormControl;
+    this.confirmPassword=this.registerForm.controls['confirmPassword'] as FormControl;
   }
   passwordMatchValidator(control:AbstractControl){
     return control.get('password')?.value === control.get('confirmPassword')?.value
@@ -41,9 +48,10 @@ export class RegisterFormComponent {
     else{
       const registerDate={...this.registerForm.value};
       delete registerDate.confirmPassword;
-      this.registerRepository.add(registerDate).subscribe();
-      this.router.navigate(['/login']);
-  }
+      this.registerRepository.add(registerDate).subscribe(_=>{
+          this.router.navigate(['/login']);
+      });
+      }
   }
 
 }

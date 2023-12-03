@@ -5,7 +5,7 @@
 <form class="form" [formGroup]="registerForm">
   <fieldset class="row justify-content-center align-content-center text-center">
     <app-shared-form
-    [control]="$any(registerForm.controls['username'])"
+    [control]="username"
     type="text"
     inputId="username"
     label="User Name"
@@ -14,7 +14,7 @@
 
         <app-shared-form
 
-        [control]="$any(registerForm.controls['email'])"
+        [control]="email"
         type="email"
         inputId="email"
         label="Email"
@@ -33,7 +33,7 @@
       </mat-error>
 
     <app-shared-form
-    [control]="$any(registerForm.controls['password'])"
+    [control]="password"
     type="text"
     inputId="password"
     label="Password"
@@ -48,7 +48,7 @@
   </mat-error>
 
     <app-shared-form
-    [control]="$any(registerForm.controls['confirmPassword'])"
+    [control]="confirmPassword"
     type="text"
     inputId="confirmPassword"
     label="Confirm Password"

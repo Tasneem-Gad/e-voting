@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-shared-form',
@@ -7,7 +7,7 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./shared-form.component.scss']
 })
 export class SharedFormComponent {
-  @Input() control:FormControl;
+  @Input() control!:FormControl;
   @Input() inputId = '';
   @Input() label:string = '';
   @Input() type:string = 'text';

@@ -6,13 +6,12 @@
   <form class="form" [formGroup]="loginForm">
     <fieldset class="row justify-content-center align-content-center text-center">
       <app-shared-form
-      [control]="$any(loginForm.controls['email'])"
+      [control]="email"
       type="email"
       inputId="email"
       label="Email"
       [required] = "true">
       </app-shared-form>
-
           <mat-error
           *ngIf="loginForm.controls['email'].invalid &&
           (loginForm.controls['email'].touched || loginForm.controls['email'].dirty)"
@@ -26,7 +25,7 @@
         </mat-error>
 
         <app-shared-form
-        [control]="$any(loginForm.controls['password'])"
+        [control]="password"
         type="text"
         inputId="password"
         label="Password"
