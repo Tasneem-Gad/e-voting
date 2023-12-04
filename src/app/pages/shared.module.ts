@@ -13,6 +13,10 @@ import { SharedFormComponent } from './shared-form/shared-form.component';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { MainInfoComponent } from './main-info/main-info.component';
+import { ContactComponent } from './contact/contact.component';
+import { EducationComponent } from './education/education.component';
+import { AttachmentComponent } from './attachment/attachment.component';
+import { ConfirmationComponent } from './confirmation/confirmation.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +24,10 @@ import { MainInfoComponent } from './main-info/main-info.component';
     SharedFormComponent,
     LoginFormComponent,
     MainInfoComponent,
+    ContactComponent,
+    EducationComponent,
+    AttachmentComponent,
+    ConfirmationComponent,
   ],
   imports: [
     HttpClientModule,
