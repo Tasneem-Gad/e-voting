@@ -7,19 +7,19 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HomeComponent } from './home/home.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { RegisterFormComponent } from './register-form/register-form.component';
 import { SharedFormComponent } from './shared-form/shared-form.component';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { MainInfoComponent } from './main-info/main-info.component';
 
 @NgModule({
   declarations: [
     RegisterFormComponent,
     SharedFormComponent,
     LoginFormComponent,
-    HomeComponent,
+    MainInfoComponent,
   ],
   imports: [
     HttpClientModule,
