@@ -15,8 +15,10 @@ import { RouterModule } from '@angular/router';
 import { MainInfoComponent } from './main-info/main-info.component';
 import { ContactComponent } from './contact/contact.component';
 import { EducationComponent } from './education/education.component';
-import { AttachmentComponent } from './attachment/attachment.component';
 import { ConfirmationComponent } from './confirmation/confirmation.component';
+import{MatStepperModule} from '@angular/material/stepper';
+import { HomeComponent } from './home/home.component';
+import { AttachmentComponent } from './attachment/attachment.component';
 
 @NgModule({
   declarations: [
@@ -26,8 +28,9 @@ import { ConfirmationComponent } from './confirmation/confirmation.component';
     MainInfoComponent,
     ContactComponent,
     EducationComponent,
-    AttachmentComponent,
     ConfirmationComponent,
+    HomeComponent,
+    AttachmentComponent,
   ],
   imports: [
     HttpClientModule,
@@ -40,7 +43,8 @@ import { ConfirmationComponent } from './confirmation/confirmation.component';
     MatInputModule,
     BrowserAnimationsModule,
     CommonModule,
-    RouterModule
+    RouterModule,
+    MatStepperModule
     ],
     providers: [],
     exports:[

@@ -1,13 +1,5 @@
-img{
-  width: 500px;
-  height: 700px;
-  margin-left: 20px;
-  margin-right: 20px;
-  margin-top:10px;
-  margin-bottom:10px ;
-}
-
 section{
+  margin-top: 30px;
   overflow-x:hidden;
   text-align: right;
   padding: 20px;
@@ -15,5 +7,14 @@ section{
 .thank{
   text-align: center;
 }
-
+button{
+align-items: right;
+color: white;
+background-color: rgb(5, 107, 197);
+border: none;
+margin-top: 20px;
+}
+button:hover{
+color: black;
+}
 

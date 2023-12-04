@@ -1,0 +1,25 @@
+<div class="d-flex flex-lg-row flex-column fixed-height">
+  <img class="logo" src="assets/images/design logo.png">
+  <section>
+  <mat-stepper orientation="horizontal" linear>
+    <mat-step label="البيانات الاساسية" >
+      <app-main-info></app-main-info>
+    </mat-step>
+    <mat-step label="طرق التواصل">
+      <app-contact></app-contact>
+    </mat-step>
+    <mat-step label="المؤهل الدراسي">
+      <app-education></app-education>
+    </mat-step>
+    <!-- <mat-step label="المرفقات">
+      <app-attachment></app-attachment>
+    </mat-step> -->
+    <mat-step label="تأكيد">
+      <app-confirmation></app-confirmation>
+    </mat-step>
+    </mat-stepper>
+  </section>
+</div>
+
+
+
