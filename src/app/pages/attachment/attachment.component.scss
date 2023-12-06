@@ -13,16 +13,6 @@ mat-select{
   text-align: right;
   padding: 10px;
 }
-button{
-  align-items: right;
-  color: white;
-  background-color: rgb(5, 107, 197);
-  border: none;
-  margin-top: 20px;
-}
-button:hover{
-  color: black;
-}
 .input-field{
 width: 450px;
 margin: 5px;
@@ -36,4 +26,14 @@ hr{
   height: 2px;
   color: black;
   background-color: black;
+}
+button{
+  align-items: right;
+  color: white;
+  background-color: rgb(5, 107, 197);
+  border: none;
+  margin-top: 20px;
+}
+button:hover{
+  color: black;
 }
