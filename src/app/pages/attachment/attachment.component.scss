@@ -1,0 +1,30 @@
+.form{
+  text-align: right;
+  align-items: right;
+}
+.label{
+  text-align: right;
+  margin-right: 15px;
+}
+input{
+direction: ltr;
+}
+section{
+  margin-top: 30px;
+  overflow-x:hidden;
+}
+hr{
+  border:none;
+  height: 2px;
+  background-color: black;
+}
+button{
+  align-items: right;
+  color: white;
+  background-color: rgb(5, 107, 197);
+  border: none;
+  margin-top: 20px;
+}
+button:hover{
+  color: black;
+}

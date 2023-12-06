@@ -1,1 +1,29 @@
-<p>home works!</p>
+
+<div class="d-flex flex-lg-row flex-column fixed-height">
+  <img class="logo" src="assets/images/design logo.png">
+  <section>
+  <mat-horizontal-stepper class="mt-2" dir="rtl">
+    <mat-step label="البيانات الاساسية" >
+      <ng-template matStepperIcon="edit">
+        <mat-icon>edit</mat-icon>
+        </ng-template>
+      <app-main-info></app-main-info>
+    </mat-step>
+    <mat-step label="طرق التواصل">
+      <app-contact></app-contact>
+    </mat-step>
+    <mat-step label="المؤهل الدراسي">
+      <app-education></app-education>
+    </mat-step>
+    <mat-step label="المرفقات">
+      <app-attachment></app-attachment>
+    </mat-step>
+    <mat-step label="تأكيد">
+      <app-confirmation></app-confirmation>
+    </mat-step>
+    </mat-horizontal-stepper>
+  </section>
+</div>
+
+
+

@@ -39,7 +39,7 @@ export class LoginFormComponent {
     }
     else{
     this.loginRepository.add(this.loginForm.value).subscribe(ـ=>{
-      this.router.navigate(['/home']);
+      this.router.navigate(['/main']);
     });
   }
 }
